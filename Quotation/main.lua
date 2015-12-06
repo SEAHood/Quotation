@@ -36,6 +36,20 @@ function Initialise()
 		end
 	end
 	frame:SetScript("OnEvent", frame.OnEvent)
+	
+	local title = GetAddOnMetadata("Quotation", "Title")
+	if title ~= nil then
+		Quotation_TitleText:SetText(title)
+	end
+	
+	local version = GetAddOnMetadata("Quotation", "Version")
+	if version ~= nil then
+		Quotation_VersionText:SetText("v"..version)
+	end
+	
+	Quotation_Config:RegisterForDrag("LeftButton")
+	Quotation_Config:SetScript("OnDragStart", Quotation_Config.StartMoving)
+	Quotation_Config:SetScript("OnDragStop", Quotation_Config.StopMovingOrSizing)	
 end
 
 function SaveQuotes()
@@ -44,4 +58,23 @@ function SaveQuotes()
 	local splitQuotes = SplitStr(quotes)
 	quoteList = splitQuotes
 	print("|cFFFFFF00".."Quotation list saved!")
+end
+
+function CloseConfig()
+	Quotation_Config:Hide()
+end
+
+function MyModScrollBar_Update()
+  local line; -- 1 through 5 of our window to scroll
+  local lineplusoffset; -- an index into our data calculated from the scroll offset
+  FauxScrollFrame_Update(MyModScrollBar,50,5,16);
+  for line=1,5 do
+    lineplusoffset = line + FauxScrollFrame_GetOffset(MyModScrollBar);
+    if lineplusoffset <= 50 then
+      --getglobal("MyModEntry"..line):SetText(table.concat(quoteList, "\r\n")[lineplusoffset]);
+      --getglobal("MyModEntry"..line):Show();
+    else
+      --getglobal("MyModEntry"..line):Hide();
+    end
+  end
 end

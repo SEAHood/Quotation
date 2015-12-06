@@ -1,7 +1,7 @@
 ## Interface: 60200
 ## Title: Quotation
 ## Author: Sam Hood
-## Version: 0.3
+## Version: 0.4
 ## SavedVariables: quoteList
 util.lua
 main.lua
