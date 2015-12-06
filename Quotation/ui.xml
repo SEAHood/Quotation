@@ -102,7 +102,9 @@
 				</Anchors>
 			</Button>
 		
-			<EditBox name="Quotation_EditQuotes" inherits="InputScrollFrameTemplate" multiLine="true" enableMouse="true">
+			<EditBox name="Quotation_EditQuotes" multiLine="true" enableMouse="true">
+				
+				<Size x="374"/>
 				<Anchors>
 					<Anchor point="CENTER"></Anchor>
 					<Anchor point="TOP" relativeTo="Quotation_DescriptionText" relativePoint="BOTTOM">
@@ -120,6 +122,7 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
+					SetupEditBox()
 					</OnLoad>
 				</Scripts>
 				<FontString inherits="ChatFontNormal" />

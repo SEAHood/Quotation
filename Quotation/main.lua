@@ -49,7 +49,30 @@ function Initialise()
 	
 	Quotation_Config:RegisterForDrag("LeftButton")
 	Quotation_Config:SetScript("OnDragStart", Quotation_Config.StartMoving)
-	Quotation_Config:SetScript("OnDragStop", Quotation_Config.StopMovingOrSizing)	
+	Quotation_Config:SetScript("OnDragStop", Quotation_Config.StopMovingOrSizing)
+	
+end
+
+function SetupEditBox()
+	local scrollFrame = CreateFrame("ScrollFrame", "$parentScrollFrame", Quotation_Config, "UIPanelScrollFrameTemplate")
+	scrollFrame:SetPoint("CENTER")
+	scrollFrame:SetPoint("TOP",Quotation_DescriptionText,"BOTTOM",0,-15)
+	scrollFrame:SetPoint("BOTTOM",Quotation_Save,"TOP",0,15)
+	scrollFrame:SetPoint("LEFT",40,0)
+	scrollFrame:SetPoint("RIGHT",-40,0)
+	
+	
+	
+	local tex = scrollFrame:CreateTexture(nil,"BACKGROUND",nil,-6)
+	tex:SetPoint("TOP",scrollFrame)
+	tex:SetPoint("RIGHT",scrollFrame,25.5,0)
+	tex:SetPoint("BOTTOM",scrollFrame)
+	tex:SetWidth(26)
+	tex:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+	tex:SetTexCoord(0,0.45,0.1640625,1)
+	tex:SetAlpha(0.5)
+	
+	scrollFrame:SetScrollChild(Quotation_EditQuotes)
 end
 
 function SaveQuotes()
