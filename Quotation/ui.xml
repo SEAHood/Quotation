@@ -33,7 +33,7 @@
 					</Anchors>
 				</FontString>
 				<FontString name="Quotation_DescriptionText" inherits="GameFontWhite"
-							text="Seperate quotes with newlines">
+							text="Separate quotes with newlines">
 					<Anchors>
 						<Anchor point="TOP" relativeTo="Quotation_TitleText" relativePoint="BOTTOM">
 						<Offset y="-4"/>

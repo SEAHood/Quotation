@@ -9,7 +9,7 @@ function SlashCmdList.QUOTATION(arg, i)
 		SendChatMessage(randomQuote , "SAY", nil, nil);
 	else
 		print("|cFFFFFF00".."Quotation usage:\r\n"..
-			  "|cFF00FF00".."/qt config - |rOpens configuration - enter quotes seperated by newlines\r\n"..
+			  "|cFF00FF00".."/qt config - |rOpens configuration - enter quotes separated by newlines\r\n"..
 			  "|cFF00FF00".."/qt quote - |rChooses a random quote and /says it")
 	end
 end
