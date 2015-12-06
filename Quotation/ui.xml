@@ -1,0 +1,99 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.blizzard.com/wow/ui/ 
+                   ..\..\FrameXML\UI.xsd">
+	<Script File="main.lua"/>
+	<Frame name="Quotation_Config" parent="UIParent" toplevel="true" frameStrata="HIGH" enableMouse="true" moveable="true" hidden="true">		
+		<Size>
+			<AbsDimension x="450" y="450"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER"/>
+		</Anchors>
+		<Backdrop bgFile="Interface\TutorialFrame\TutorialFrameBackground" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<EdgeSize>
+				<AbsValue val="24"/>
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="24"/>
+			</TileSize>
+			<BackgroundInsets>
+				<AbsInset left="5" right="5" top="5" bottom="5"/>
+			</BackgroundInsets>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="Quotation_TitleText" font="Fonts\FRIZQT__.TTF" text="Quotation Configuration">
+					<FontHeight val="18"/>
+					<Color a="1" r="1" g="1" b="0" />
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset x="0" y="-20"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Quotation_DescriptionText" inherits="GameFontWhite"
+							text="Seperate quotes with newlines">
+					<Anchors>
+						<Anchor point="TOP" relativeTo="Quotation_TitleText" relativePoint="BOTTOM">
+						<Offset y="-4"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+	
+		<Scripts>
+			<OnLoad>
+				Initialise();
+			</OnLoad>
+		</Scripts>
+		<Frames>		
+		
+			<Button name="Quotation_Close" inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset x="-5" y="-5"/>
+					</Anchor>
+				</Anchors>
+			</Button>	
+		
+			<EditBox name="Quotation_EditQuotes" inherits="InputScrollFrameTemplate" multiLine="true" enableMouse="true">
+				<Anchors>
+					<Anchor point="CENTER"></Anchor>
+					<Anchor point="TOP">
+						<Offset x="0" y="-75"/>
+					</Anchor>
+					<Anchor point="BOTTOM">
+						<Offset x="0" y="60"/>
+					</Anchor>
+					<Anchor point="LEFT">
+						<Offset x="40" y="0"/>
+					</Anchor>
+					<Anchor point="RIGHT">
+						<Offset x="-40" y="0"/>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+					</OnLoad>
+				</Scripts>
+				<FontString inherits="ChatFontNormal" />
+			</EditBox>
+		
+			<Button name="Quotation_Save" inherits="UIPanelButtonTemplate" text="Save">
+				<Size x="100" y="30"/>
+				<Scripts>
+					<OnClick>
+						SaveQuotes()
+					</OnClick>
+				</Scripts>
+				<Anchors>
+					<Anchor point="BOTTOM">
+						<Offset x="0" y="20"/>
+					</Anchor>
+				</Anchors>
+			</Button>
+		</Frames>
+	</Frame>
+</Ui>

@@ -1,0 +1,7 @@
+## Interface: 60200
+## Title: Quotation
+## Author: Sam Hood
+## Version: 0.3
+## SavedVariables: quoteList
+main.lua
+ui.xml
