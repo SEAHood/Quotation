@@ -3,5 +3,6 @@
 ## Author: Sam Hood
 ## Version: 0.3
 ## SavedVariables: quoteList
+util.lua
 main.lua
 ui.xml

@@ -1,5 +1,4 @@
 SLASH_QUOTATION1, SLASH_QUOTATION2 = '/qt', '/quotation'
-debugMode = false
 function SlashCmdList.QUOTATION(arg, i)
 	if (arg == "config") then
 		Quotation_Config:Show()
@@ -42,24 +41,7 @@ end
 function SaveQuotes()
 	debugPrint("In SaveQuotes")
 	local quotes = Quotation_EditQuotes:GetText()
-	local splitQuotes = SplitStr(quotes, "\r\n")
+	local splitQuotes = SplitStr(quotes)
 	quoteList = splitQuotes
 	print("|cFFFFFF00".."Quotation list saved!")
-end
-
-function SplitStr(inputStr, sep)
-	if sep == nil then
-			sep = "%s"
-	end
-	local t={} ; i=1
-	for str in string.gmatch(inputStr, "([^"..sep.."]+)") do
-		debugPrint(str)
-		t[i] = str
-		i = i + 1
-	end
-	return t
-end
-
-function debugPrint(str)
-	if debugMode then print(str) end
 end
